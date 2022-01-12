@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-3">
+    <form method="post" class = "post-form"> <!--동일한 페이지로 이동하기 위해 비워놨다.-->
+        {% csrf_token %} <!--form 쓸때는 보안키를 꼭 써야한다.-->
+        {% include "form_errors.html" %}
+        <div class = "form-group">
+            <label for = "content">답변내용</label>
+            <textarea class = "form-control" name = "content" id = "content" rows = "10">
+                    {{ form.content.value|default_if_none:'' }}</textarea>
+        </div>
+
+<!--        {{ form.as_p}} &lt;!&ndash;form 객체를 p태그 안에 보관하겠다.&ndash;&gt;-->
+        <button type = "submit" class = "btn btn-primary">저장하기</button>
+    </form>
+</div>
+{% endblock %}

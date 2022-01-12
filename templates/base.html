@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head> <!--이 안에 들어가 있는 내용은 모두 공통된 내용이다. 다 하나 or 두개는 겹치는 내용-->
+    <meta charset="UTF-8">
+    <!--<link rel = "stylesheet" type = "text/css" href = "{% static 'bootstrap.min.css' %}">-->
+    <mata name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no"></mata>
+    <title>Hello 2022</title>
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'bootstrap.min.css' %}">
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'style.css' %}">
+</head>
+<body>
+
+<!--이전엔 base만 있었는데 이제는 navbar도 생겼다. 그래서 여기 원래 있던 내용을 navbar로 옮기고 여기에는 navbar를 불러오는 코드를 넣었다.-->
+{% include "navbar.html" %}
+
+<!--기본 템플릿 안에 삽입될 내용 시작-->
+{% block content %}
+{% endblock %}
+<!--기본 템플릿 안에 삽입될 내용 끝-->
+
+<!--jQuery JS-->
+<script src="{% static 'jquery-3.6.0.min.js' %}"></script>
+<!--Bootstrap JS-->
+<script src="{% static 'bootstrap.min.js' %}"></script>
+
+<!--자바스크립트 start--><!--script를 가져온 다음에 block-->
+{% block script %}
+{% endblock %}
+<!--자바스크립트 end-->
+
+</body>
+</html>
